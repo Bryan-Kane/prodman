@@ -1,0 +1,32 @@
+<style>
+  .red{
+    color:red;
+  }
+</style>
+<div class='col-12 row text-center ml-1 mr-1'>
+    <h1 class='col-12'>Create a New Product:</h1>
+    <div class='col-3'></div>
+    <form (submit)='addProduct(product)' #product = 'ngForm' class='col-6 form-group form-control'>
+      <div class='col-12 red' *ngIf='title_error'>
+        {{title_error}}
+      </div>
+      <div class='col-12 row mt-1 mb-1'> 
+        <p class='col-2'>Title: </p>
+        <input type='text' id='title' name='title' class='col-10 form-control' ngModel>
+      </div>
+      <div class='col-12 red' *ngIf='price_error'>
+        {{price_error}}
+      </div>
+      <div class='col-12 row mb-1'>
+        <p class='col-2'>Price: </p>
+        <input type='number' id='price' name='price' class='col-10 form-control' ngModel>
+      </div>
+      <div class='col-12 row mb-1'>
+        <p class='col-2'>Url: </p>
+        <input type='text' id='url' name='url' class='col-10 form-control' ngModel>
+      </div>
+      <div class='col-12 text-center'>
+        <input type='submit' class='ml-1 mr-1 col-3 btn btn-primary' value='Create'>
+        <button type='button' class='ml-1 mr-1 col-3 btn btn-primary' [routerLink]="['/']">Cancel</button>
+      </div>
+    </form>

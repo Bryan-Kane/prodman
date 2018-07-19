@@ -1,0 +1,23 @@
+<style>
+    img{
+        max-height:500px;
+    }
+</style>
+<div class='col-12'>
+    <h1>Products List</h1>
+</div>
+<div class='row col-12' >
+    <div class='col-6 text-center' id='limiter' *ngFor='let i of products'>
+        <img [src]='i.url' class='img-fluid col-12' alt='i._id'>
+        <h3 class='col-12'>{{i.title}}</h3>
+        <h3 class='col-12'>{{i.price}}</h3>
+        <div class='col-12 row text-center'>
+            <div class='col-2'></div> 
+            <button type='button' [routerLink]="['/products','edit',i._id]" class='col-4 mr-1 btn btn-primary'>Edit Placeholder</button>
+            <button type='button' [routerLink]="['/products','delete',i._id]" class='col-4 ml-1 btn btn-primary'>Delete Placeholder</button>
+        </div>
+    </div>
+
+</div>
+
+<router-outlet></router-outlet>

@@ -1,0 +1,39 @@
+<style>
+  .red{
+    color:red;
+  }
+</style>
+<div class='col-12 text-center row'>
+    <h1 class='col-12'>Product Edit:</h1>
+    <div class='col-3'></div>
+    <div class='col-6 row'>
+      <form (submit)='editProduct(productEdit, product._id)' #productEdit = 'ngForm' class='col-12 row form-group form-control'>
+        <div class='col-12 red' *ngIf='title_error'>
+          {{title_error}}
+        </div>
+        <div class='col-12 row mt-1 mb-1'>
+          <p class='col-2'>Title:</p>
+          <input class='col-10 form-control' type='text' name='title' [(ngModel)]="product['title']">
+        </div>
+        <div class='col-12 red' *ngIf='price_error'>
+          {{price_error}}
+        </div>
+        <div class='col-12 row mt-1 mb-1'>
+          <p class='col-2'>Price: </p>
+          <input class='col-10 form-control' type='number' name='price' [(ngModel)]="product['price']">
+        </div>
+        <div class='col-12 row mt-1 mb-1'>
+          <p class='col-2'>Url: </p>
+          <input class='col-10 form-control' type='text' name='url' [(ngModel)]="product['url']">
+        </div>
+        <div class='col-12 mt-1 mb-1 row text-center'>
+          <div class='col-2'></div> 
+          <input type='submit' class='col-4 mr-1 btn btn-primary' value='Submit'>
+          <button type='button' [routerLink]="['/products','delete',product._id]" class='col-4 ml-1 btn btn-primary'>Delete Placeholder</button>
+        </div>
+        
+      </form>
+      
+    </div>
+  </div>
+  <router-outlet></router-outlet>
